@@ -3,7 +3,25 @@
 <h4>プレゼンテーション スキルアップセミナー</h4>
 <br/>
 <iframe src="//www.slideshare.net/slideshow/embed_code/key/49q9qkhCjAmHS1" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> 
+    <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+         <!-- ここからフォーム -->
+      <%= form_tag("/events/1/comments", method: :post) do %>
+        <textarea cols="30" name="comment" placeholder="コメントする" rows="2"></textarea>
+        <input type="submit" value="SENT">
+      <% end %>
+      <% if @comments %>
+        <% @comments.each do |comment| %>
+          <p>
+             ユーザー名
+            <strong><%= comment.user.name %></strong>
+          </p>
+          <div>
+            <strong>コメント</strong>　　<p><%= comment.comment %></p>
+          </div>
+        <% end %>
+      <% end %>
     </div>
-    </div>
+</div>
 </div>
 </div>

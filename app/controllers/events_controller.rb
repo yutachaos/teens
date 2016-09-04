@@ -26,6 +26,7 @@ class EventsController < ApplicationController
    def  slide
       @title = 'LEARNING 1'
       @headTitle =  'LEARNING 1'
+      @comments = Comment.where(:event_id => 5)
    end
 
     def result
