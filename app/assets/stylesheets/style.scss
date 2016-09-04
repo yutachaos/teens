@@ -400,6 +400,10 @@ form {
     }
   }
 }
+.item{
+  padding: 5px;
+  margin: 25px 0px;
+}
 
 footer {
   @include boxBase;

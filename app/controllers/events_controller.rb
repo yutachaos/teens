@@ -23,9 +23,10 @@ class EventsController < ApplicationController
       @headTitle =  @event .title
     end
 
-   def user
-      @event = Event.find(params[:id])
-    end
+   def  slide
+      @title = 'LEARNING 1'
+      @headTitle =  'LEARNING 1'
+   end
 
     def result
 

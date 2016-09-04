@@ -37,24 +37,40 @@
 <div class ="contents row">
 <div class="container">
 <img  src="<%=  @event.movie_url %>" >
-<br/>
-<br/>
-<h4>タイトル</h4>
+<div class="item">
+    <h4>タイトル</h4>
 <%= @event.title %>
-<h4>テーマ</h4>
-<%= @event.theme %>
-<h4>主催者</h4><%= @event.user.name %>
-<h4>代金</h4>
-<%= @event.price %>円
-<h4>詳細</h4>
-<%= simple_format(@event.details) %>
-<div>
-最低人数
-<p><%= @event.min_count %></p>
-参加人数
-<p><%= @event.max_count %></p>
 </div>
- <input class="btn" type="submit" value="参加する">
+<div class="item">
+        <h4>テーマ</h4>
+<%= @event.theme %>
+</div>
+<div class="item">
+        <h4>主催者</h4><%= @event.user.name %>
+</div>
+<div class="item">
+        <h4>詳細</h4>
+        <%= simple_format(@event.details) %>
+</div>
+
+<div class="item">
+<h4>代金</h4>
+<p>
+<%= @event.price %>円
+</p>
+</div>
+
+<div class="item">
+      最低開催人数
+      <p><%= @event.min_count %>人</p>
+      参加人数
+      <p><%= @event.max_count %>人</p>
+</div>
+<div class="item">
+        あと<font color="red"><%= @event.max_count - @event.min_count %></font>人で開催！ 
+</div>
+
+ <button class="btn primary">参加する</button>
 </div>
   </div>
  </div>
