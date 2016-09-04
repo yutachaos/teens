@@ -1,9 +1,9 @@
  <div class="contents row">
      <div class="user_box">
-       <%= image_tag @user.email,:size => '100x100' %>
+       <%= image_tag @user.email,:size => '250x250' %>
        <br/><br/>
               <div><label>名前</label> <%= @user.name %></div>
-　　      <div><label>自己紹介</label> <%= @user.description %></div>
+　　      <div><label></label> <%= simple_format@user.description %></div>
 　　      <div><label>イベント参加回数</label> <%= @counts %></div>
       </div>
       <div class="event_box">
@@ -19,7 +19,7 @@
        <% end %>
        </div>
 
-     <div class="user_box">
+     <div class="question_box">
               <div class ="item"><h3>questions</h3></div>
               <div>
                       <a href='events/learning/1'>Learning 1</a>
