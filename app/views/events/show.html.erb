@@ -23,11 +23,16 @@
       <% if @comments %>
         <% @comments.each do |comment| %>
           <p>
-            ユーザー名　<strong><%= comment.user.name %></strong>
+          <% if @event.user.role == 1 %>
+             ユーザー名
+          <% else %>
+             メンター
+          <% end%>
+            <strong><%= comment.user.name %></strong>
           </p>
-          <p>
-            コメント　　<%= comment.comment %>
-          </p>
+          <div>
+            <strong>コメント</strong>　　<p><%= comment.comment %></p>
+          </div>
         <% end %>
       <% end %>
     </div>
