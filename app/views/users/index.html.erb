@@ -1,0 +1,29 @@
+ <div class="contents row">
+     <div class="user_box">
+       <%= image_tag @user.email,:size => '100x100' %>
+       <br/><br/>
+              <div><label>名前</label> <%= @user.name %></div>
+　　      <div><label>自己紹介</label> <%= @user.description %></div>
+　　      <div><label>イベント参加回数</label> <%= @counts %></div>
+      </div>
+      <div class="event_box">
+      NEXT COMPETITION!
+       <% @pastEvents.each do |event| %>
+       <%= render partial: "li", locals: { event: event } %>
+       <% end %>
+       </div>
+       <div class="event_box">
+       POST  COMPETITION!
+       <% @postEvents.each do |event| %>
+       <%= render partial: "li", locals: { event: event } %>
+       <% end %>
+       </div>
+
+     <div class="user_box">
+       <%= image_tag '/images/q.png',:size => '100x100' %>
+          <br/><br/>
+              <div><label>questions</label><a href=""></a></div>
+       </div>
+
+
+</div>

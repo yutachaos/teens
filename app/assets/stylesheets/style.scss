@@ -51,7 +51,7 @@ line-height: 1.57;
   letter-spacing: 0.15em;
   font-size: 16px;
   color: $dark;
-  font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+  font-family: "Avenir", "游ゴシック", "YuGothic", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
   margin: 0;
 }
 
@@ -363,6 +363,25 @@ form {
   box-shadow: 0 0 10px rgba($black,0.2);
   background-color: $white;
   box-sizing: border-box;
+}
+
+.user_box {
+  @include boxBase(20px 15px ,30px);
+  box-shadow: 0 0 10px rgba($black,0.2);
+  background-color: $white;
+  box-sizing: border-box;
+  width:400px;
+  height:400px;
+  float:left;
+}
+
+.event_box {
+  @include boxBase(20px 20px 20px 0px ,10px 15px);
+  box-shadow: 0 0 10px rgba($black,0.2);
+  background-color: $white;
+  box-sizing: border-box;
+  width:350px;
+  float:right;
 }
 
 .itemContainer {

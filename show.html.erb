@@ -1,0 +1,49 @@
+<% if @event.post_flag == 1 %>
+<div class ="contents row">
+<div class="container">
+<iframe width="560" height="315" src="<%=  @event.movie_url %>" frameborder="0" allowfullscreen></iframe>
+    <%= simple_format(@event.details) %>
+    <span class="name">
+        <span>投稿者</span><%= @event.user.name %>
+    </span>
+  </div>
+    <div class="container"> 
+    <!-- ここからフォーム -->
+      <%= form_tag("/events/#{@event.id}/comments", method: :post) do %>
+        <textarea cols="30" name="comment" placeholder="コメントする" rows="2"></textarea>
+        <input type="submit" value="SENT">
+      <% end %>
+    <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% if @comments %>
+        <% @comments.each do |comment| %>
+          <p>
+            ユーザー名　<strong><%= comment.user.name %></strong>
+          </p>
+          <p>
+            コメント　　<%= comment.comment %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+</div>
+</div>
+<% else %>
+<div class ="contents row">
+<div class="container">
+<iframe width="560" height="315" src="<%=  @event.movie_url %>" frameborder="0" allowfullscreen></iframe>
+<%= @event.title %>
+
+<%= @event.theme %>
+
+    <%= simple_format(@event.details) %>
+    <span class="name">
+        <span>作成者</span><%= @event.user.name %>
+    </span>
+  </div>
+    <div class="container"> 
+    
+    </div>
+</div>
+</div>
+<% end %>

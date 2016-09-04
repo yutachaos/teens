@@ -1,0 +1,62 @@
+<% if @event.post_flag == 1 %>
+<div class ="contents row">
+<div class="container">
+<h4>MOVIE</h4>
+<iframe width="560" height="315" src="<%=  @event.movie_url %>" frameborder="0" allowfullscreen></iframe>
+    <h4>詳細</h4>
+    <%= simple_format(@event.details) %>
+    <span class="name">
+        <h4>投稿者</h4><%= @event.user.name %>
+    </span>
+    <h4>教材ダウンロード</h4>
+     <a href ="<%= @event.file %>">LINK </a>
+  </div>
+    <div class="container"> 
+    <!-- ここからフォーム -->
+      <%= form_tag("/events/#{@event.id}/comments", method: :post) do %>
+        <textarea cols="30" name="comment" placeholder="コメントする" rows="2"></textarea>
+        <input type="hidden" name="id" value="<%= @event.id %>">
+        <input type="submit" value="SENT">
+      <% end %>
+    <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% if @comments %>
+        <% @comments.each do |comment| %>
+          <p>
+            ユーザー名　<strong><%= comment.user.name %></strong>
+          </p>
+          <p>
+            コメント　　<%= comment.comment %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+</div>
+</div>
+<% else %>
+<div class ="contents row">
+<div class="container">
+<img  src="<%=  @event.movie_url %>" >
+<br/>
+<br/>
+<h4>タイトル</h4>
+<%= @event.title %>
+<h4>テーマ</h4>
+<%= @event.theme %>
+<h4>主催者</h4><%= @event.user.name %>
+<h4>代金</h4>
+<%= @event.price %>円
+<h4>詳細</h4>
+<%= simple_format(@event.details) %>
+<div>
+最低人数
+<p><%= @event.min_count %></p>
+参加人数
+<p><%= @event.max_count %></p>
+</div>
+ <input class="btn" type="submit" value="参加する">
+</div>
+  </div>
+ </div>
+</div>
+<% end %>

@@ -11,29 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507135626) do
+ActiveRecord::Schema.define(version: 20160904003038) do
 
-  create_table "finds", force: :cascade do |t|
-    t.string   "shop_id",        limit: 255
-    t.string   "name",           limit: 255
-    t.string   "url",            limit: 255
-    t.string   "image_url",      limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "service_remark", limit: 255
-    t.integer  "distance",       limit: 4
+  create_table "comments", force: :cascade do |t|
+    t.integer  "event_id",   limit: 4
+    t.string   "comment",    limit: 255
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  create_table "searches", force: :cascade do |t|
-    t.string   "name",           limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "image_url",      limit: 255
-    t.string   "location",       limit: 255
-    t.string   "full_location",  limit: 255
-    t.float    "latitude",       limit: 24
-    t.float    "longitude",      limit: 24
-    t.string   "service_remark", limit: 255
+  create_table "event_users", force: :cascade do |t|
+    t.integer  "event_id",    limit: 4
+    t.integer  "user_id",     limit: 4
+    t.string   "user_file",   limit: 255
+    t.string   "mem_comment", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.string   "details",    limit: 255
+    t.string   "movie_url",  limit: 255
+    t.date     "event_date"
+    t.integer  "post_flag",  limit: 4
+    t.integer  "min_count",  limit: 4
+    t.integer  "max_count",  limit: 4
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "theme",      limit: 255
+    t.integer  "price",      limit: 4
+    t.string   "file",       limit: 255
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "email",       limit: 255
+    t.string   "password",    limit: 255
+    t.string   "description", limit: 255
+    t.integer  "role",        limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
 end

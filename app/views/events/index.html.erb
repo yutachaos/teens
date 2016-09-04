@@ -1,0 +1,26 @@
+<div id="gray_out">
+  <div class="contents row">
+   <div class="container">
+   navigation text
+   </div>
+    <div class="container">
+        <%= image_tag 'b.jpg' %>
+    </div>
+    <div class="container">
+      <%= form_tag('/user', method: :post) do %>
+        <h1>
+        ログイン
+        </h1>
+
+        <br/>
+        <label>name</label>
+        <input type="text" value ="" name="name" />
+         <label>pass</label>
+        <input type="text" value ="" name="pass" />
+        <input type="submit" value="Sign in">
+        <input type="submit" value="Sign up">
+      <% end %>
+    </div>
+  </div>
+
+</div>
