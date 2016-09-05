@@ -1,18 +1,18 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This program was created for startup weekend 2016. 
 
 Things you may want to cover:
 
 * Ruby version
-
+ruby 2.3.1
+use Ruby on Rails
 * System dependencies
-
+none
 * Configuration
-
+none
 * Database creation
-
+For mysql or postgreSQl
 * Database initialization
 
 * How to run the test suite
@@ -21,7 +21,6 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
 
 
 Please feel free to use a different markup language if you do not plan to run
